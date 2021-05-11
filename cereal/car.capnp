@@ -500,6 +500,7 @@ struct CarParams {
     subaruLegacy @22;  # pre-Global platform
     hyundaiLegacy @23;
     hyundaiCommunity @24;
+    ram @25; # brand new
   }
 
   enum SteerControlType {
