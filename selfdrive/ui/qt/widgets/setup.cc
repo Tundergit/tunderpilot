@@ -136,7 +136,7 @@ PrimeAdWidget::PrimeAdWidget(QWidget* parent) : QWidget(parent) {
   vlayout->setMargin(30);
   vlayout->setSpacing(15);
 
-  vlayout->addWidget(new QLabel("tunderpilot v1.0.1"), 1, Qt::AlignTop);
+  vlayout->addWidget(new QLabel("tunderpilot"), 1, Qt::AlignTop);
 
   QLabel* description = new QLabel("This is a high-performance vehicle equipped with advanced self drive features.  Unauthorized use is prohibited.");
   description->setStyleSheet(R"(
