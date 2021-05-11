@@ -76,7 +76,7 @@ PrimeUserWidget::PrimeUserWidget(QWidget* parent) : QWidget(parent) {
   mainLayout = new QVBoxLayout;
   mainLayout->setMargin(30);
 
-  QLabel* commaPrime = new QLabel("COMMA PRIME");
+  QLabel* commaPrime = new QLabel("TUNDER-PRIME");
   mainLayout->addWidget(commaPrime, 0, Qt::AlignTop);
 
   username = new QLabel();
@@ -136,9 +136,9 @@ PrimeAdWidget::PrimeAdWidget(QWidget* parent) : QWidget(parent) {
   vlayout->setMargin(30);
   vlayout->setSpacing(15);
 
-  vlayout->addWidget(new QLabel("Upgrade now"), 1, Qt::AlignTop);
+  vlayout->addWidget(new QLabel("tunderpilot v1.0.1"), 1, Qt::AlignTop);
 
-  QLabel* description = new QLabel("Become a comma prime member in the comma connect app and get premium features!");
+  QLabel* description = new QLabel("This is a high-performance vehicle equipped with advanced self drive features.  Unauthorized use is prohibited.");
   description->setStyleSheet(R"(
     font-size: 50px;
     color: #b8b8b8;
@@ -146,7 +146,7 @@ PrimeAdWidget::PrimeAdWidget(QWidget* parent) : QWidget(parent) {
   description->setWordWrap(true);
   vlayout->addWidget(description, 2, Qt::AlignTop);
 
-  QVector<QString> features = {"✓ REMOTE ACCESS", "✓ 14 DAYS OF STORAGE", "✓ DEVELOPER PERKS"};
+  QVector<QString> features = {"✓ USE COMMON SENSE", "✓ OBEY LOCAL LAWS", "✓ DO SOME SKIDS"};
   for (auto &f: features) {
     QLabel* feature = new QLabel(f);
     feature->setStyleSheet(R"(font-size: 40px;)");
