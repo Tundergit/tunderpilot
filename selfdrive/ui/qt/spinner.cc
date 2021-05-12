@@ -14,7 +14,7 @@
 #include "selfdrive/ui/qt/qt_window.h"
 
 TrackWidget::TrackWidget(QWidget *parent) : QWidget(parent) {
-  setFixedSize(spinner_size);
+//  setFixedSize(spinner_size);
   setAutoFillBackground(true);
 
   comma_img = QPixmap("../assets/img_spinner_comma.png");
