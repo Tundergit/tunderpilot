@@ -15,9 +15,9 @@
 
 TrackWidget::TrackWidget(QWidget *parent) : QWidget(parent) {
   setFixedSize(spinner_size);
-  setAutoFillBackground(false);
+  setAutoFillBackground(true);
 
-  comma_img = QPixmap("../assets/img_spinner_comma.png").scaled(int 3840, int 2160, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+  comma_img = QPixmap("../assets/img_spinner_comma.png");
 
   // pre-compute all the track imgs. make this a gif instead?
   QTransform transform;
