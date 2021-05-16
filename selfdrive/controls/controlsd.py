@@ -217,7 +217,7 @@ class Controls:
       self.events.add(EventName.canError)
 
     safety_mismatch = self.sm['pandaState'].safetyModel != self.CP.safetyModel or self.sm['pandaState'].safetyParam != self.CP.safetyParam
-    if safety_mismatch or self.mismatch_counter >= 200:
+    if safety_mismatch or self.mismatch_counter >= 20000:  # up from 200 for Ram dev
       self.events.add(EventName.controlsMismatch)
 
     if not self.sm['liveParameters'].valid:
