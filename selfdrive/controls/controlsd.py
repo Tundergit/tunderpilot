@@ -27,8 +27,8 @@ from selfdrive.hardware import HARDWARE, TICI
 
 LDW_MIN_SPEED = 31 * CV.MPH_TO_MS
 LANE_DEPARTURE_THRESHOLD = 0.1
-STEER_ANGLE_SATURATION_TIMEOUT = 10.0 / DT_CTRL
-STEER_ANGLE_SATURATION_THRESHOLD = 10.0  # Degrees
+STEER_ANGLE_SATURATION_TIMEOUT = 20.0 / DT_CTRL
+STEER_ANGLE_SATURATION_THRESHOLD = 25.0  # Degrees
 
 SIMULATION = "SIMULATION" in os.environ
 NOSENSOR = "NOSENSOR" in os.environ
@@ -217,7 +217,7 @@ class Controls:
       self.events.add(EventName.canError)
 
     safety_mismatch = self.sm['pandaState'].safetyModel != self.CP.safetyModel or self.sm['pandaState'].safetyParam != self.CP.safetyParam
-    if safety_mismatch or self.mismatch_counter >= 20000:  # up from 200 for Ram dev
+    if safety_mismatch or self.mismatch_counter >= 200000:  # up from 200 for Ram dev
       self.events.add(EventName.controlsMismatch)
 
     if not self.sm['liveParameters'].valid:
