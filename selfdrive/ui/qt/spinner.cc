@@ -15,7 +15,7 @@
 
 TrackWidget::TrackWidget(QWidget *parent) : QWidget(parent) {
   setFixedSize(spinner_size);
-  setAutoFillBackground(true);
+  setAutoFillBackground(false);
 
   comma_img = QPixmap("../assets/img_spinner_comma.png");
 
