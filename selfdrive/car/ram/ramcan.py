@@ -44,7 +44,7 @@ def create_lkas_command(packer, apply_steer, counter, steer_command_bit):
   values["CHECKSUM"] = checksum
   return packer.make_can_msg("FORWARD_CAMERA_LKAS", 0, values)
 
-def create_lkas_hud(packer, enabled, leftLaneVisible, rightLaneVisible):
+def create_lkas_hud(packer, enabled, leftLaneVisible, rightLaneVisible, autoHighBeamBit):
   # FCA came up with this scheme, not me
   if enabled:
     if leftLaneVisible:
@@ -61,6 +61,7 @@ def create_lkas_hud(packer, enabled, leftLaneVisible, rightLaneVisible):
 
   values = {
     "LKAS_HUD": lane_visibility_signal,
+    "AUTO_HIGH_BEAM_BIT": autoHighBeamBit,
   }
 
   return packer.make_can_msg("FORWARD_CAMERA_HUD", 0, values)

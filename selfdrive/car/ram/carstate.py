@@ -47,6 +47,7 @@ class CarState(CarStateBase):
 #    ret.cruiseState.available = cp_cam.vl["FORWARD_CAMERA_ACC"]['ACC_STATUS'] == 1 # ACC is white... right???
     ret.cruiseState.available = True # for dev
     ret.cruiseState.enabled = cp_cam.vl["FORWARD_CAMERA_ACC"]['ACC_STATUS'] == 3 # for dev
+    ret.cruiseState.autoHighBeamBit = cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT']
     
     ret.cruiseState.speed = cp_cam.vl["FORWARD_CAMERA_CLUSTER"]['ACC_SET_SPEED'] * CV.KPH_TO_MS
     # CRUISE_STATE is a three bit msg, 0 is off, 1 and 2 are Non-ACC mode, 3 and 4 are ACC mode, find if there are other states too
@@ -133,10 +134,11 @@ class CarState(CarStateBase):
       ("ACC_SET_SPEED", "FORWARD_CAMERA_CLUSTER", -1),
 #      ("LKAS_HUD", "FOWARD_CAMERA_HUD", -1),
       ("LKAS_CONTROL_BIT", "FORWARD_CAMERA_LKAS", 0),
+      ("AUTO_HIGH_BEAM_BIT", "FORWARD_CAMERA_HUD", 0),
     ]
     checks = [
       ("FORWARD_CAMERA_LKAS", 50),
-#      ("FORWARD_CAMERA_HUD", 15),
+      ("FORWARD_CAMERA_HUD", 15),
       ("FORWARD_CAMERA_ACC", 50),
       ("FORWARD_CAMERA_CLUSTER", 50),
     ]
