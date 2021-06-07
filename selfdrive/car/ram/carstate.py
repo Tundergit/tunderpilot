@@ -14,6 +14,7 @@ class CarState(CarStateBase):
     ret = car.CarState.new_message()
 
     self.steer_command_bit = cp_cam.vl["FORWARD_CAMERA_LKAS"]['LKAS_CONTROL_BIT']
+    self.autoHighBeamBit = cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT'] # maybe this instead of cruisestate
 
     ret.doorOpen = any([cp.vl["DOORS"]['DOOR_OPEN_LF'],
                         cp.vl["DOORS"]['DOOR_OPEN_RF'],
@@ -47,7 +48,7 @@ class CarState(CarStateBase):
 #    ret.cruiseState.available = cp_cam.vl["FORWARD_CAMERA_ACC"]['ACC_STATUS'] == 1 # ACC is white... right???
     ret.cruiseState.available = True # for dev
     ret.cruiseState.enabled = cp_cam.vl["FORWARD_CAMERA_ACC"]['ACC_STATUS'] == 3 # for dev
-    ret.cruiseState.autoHighBeamBit = cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT']
+#    ret.cruiseState.autoHighBeamBit = cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT'] # this might not be a cruisestate thing
     
     ret.cruiseState.speed = cp_cam.vl["FORWARD_CAMERA_CLUSTER"]['ACC_SET_SPEED'] * CV.KPH_TO_MS
     # CRUISE_STATE is a three bit msg, 0 is off, 1 and 2 are Non-ACC mode, 3 and 4 are ACC mode, find if there are other states too
@@ -134,7 +135,7 @@ class CarState(CarStateBase):
       ("ACC_SET_SPEED", "FORWARD_CAMERA_CLUSTER", -1),
 #      ("LKAS_HUD", "FOWARD_CAMERA_HUD", -1),
       ("LKAS_CONTROL_BIT", "FORWARD_CAMERA_LKAS", 0),
-      ("AUTO_HIGH_BEAM_BIT", "FORWARD_CAMERA_HUD", 0),
+      ("AUTO_HIGH_BEAM_BIT", "FORWARD_CAMERA_HUD", 0), # why didn't i check this before, is it broken?
     ]
     checks = [
       ("FORWARD_CAMERA_LKAS", 50),

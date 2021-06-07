@@ -23,6 +23,7 @@ class CarController():
     P = CarControllerParams
     
     steer_ready = CS.out.vEgo > CS.CP.minSteerSpeed
+    autoHighBeamBit = CS.out.autoHighBeamBit
     
     if steer_ready:
       self.steer_command_bit = True
