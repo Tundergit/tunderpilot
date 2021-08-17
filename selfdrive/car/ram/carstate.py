@@ -25,7 +25,7 @@ class CarState(CarStateBase):
     ret.brake = 0
     ret.brakeLights = ret.brakePressed
     ret.gas = cp.vl["TPS_1"]['THROTTLE_POSITION']
-    ret.gasPressed = ret.gas > 5
+    ret.gasPressed = ret.gas > 25
 
     ret.espDisabled = (cp.vl["CENTER_STACK"]['TRAC_OFF'] == 1)
 
