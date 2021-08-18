@@ -14,15 +14,16 @@ class CarController():
     self.car_fingerprint = CP.carFingerprint
     self.steer_rate_limited = False
     self.prev_frame = -1
-    self.steer_command_bit = False
+    self.steer_command_bit = False 
 
     self.packer = CANPacker(dbc_name)
 
   def update(self, enabled, CS, frame, actuators, pcm_cancel_cmd, leftLaneVisible,
-             rightLaneVisible):  # TODO hud_alert
+             rightLaneVisible, autoHighBeamBit):  # TODO hud_alert
     P = CarControllerParams
     
     steer_ready = CS.out.vEgo > CS.CP.minSteerSpeed
+    autoHighBeamBit = CS.out.autoHighBeamBit
     
     if steer_ready:
       self.steer_command_bit = True
@@ -55,6 +56,6 @@ class CarController():
       can_sends.append(create_lkas_command(self.packer, int(apply_steer), counter, self.steer_command_bit))
 
     if frame % 5 == 0:
-      can_sends.append(create_lkas_hud(self.packer, enabled, leftLaneVisible, rightLaneVisible))
+      can_sends.append(create_lkas_hud(self.packer, enabled, leftLaneVisible, rightLaneVisible, autoHighBeamBit))
     
     return can_sends
