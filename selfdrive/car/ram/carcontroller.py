@@ -19,11 +19,10 @@ class CarController():
     self.packer = CANPacker(dbc_name)
 
   def update(self, enabled, CS, frame, actuators, pcm_cancel_cmd, leftLaneVisible,
-             rightLaneVisible, autoHighBeamBit):  # TODO hud_alert
+             rightLaneVisible):  # TODO hud_alert
     P = CarControllerParams
     
     steer_ready = CS.out.vEgo > CS.CP.minSteerSpeed
-    autoHighBeamBit = CS.out.autoHighBeamBit
     
     if steer_ready:
       self.steer_command_bit = True
