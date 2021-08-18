@@ -55,6 +55,6 @@ class CarController():
       can_sends.append(create_lkas_command(self.packer, int(apply_steer), counter, self.steer_command_bit))
 
     if frame % 5 == 0:
-      can_sends.append(create_lkas_hud(self.packer, enabled, leftLaneVisible, rightLaneVisible, autoHighBeamBit))
+      can_sends.append(create_lkas_hud(self.packer, enabled, leftLaneVisible, rightLaneVisible))
     
     return can_sends
