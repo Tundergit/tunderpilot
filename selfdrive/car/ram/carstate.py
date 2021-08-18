@@ -14,7 +14,7 @@ class CarState(CarStateBase):
     ret = car.CarState.new_message()
 
     self.steer_command_bit = cp_cam.vl["FORWARD_CAMERA_LKAS"]['LKAS_CONTROL_BIT']
-    self.autoHighBeamBit = bool(cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT'])
+    ret.autoHighBeamBit = bool(cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT'])
 
     ret.doorOpen = any([cp.vl["DOORS"]['DOOR_OPEN_LF'],
                         cp.vl["DOORS"]['DOOR_OPEN_RF'],
