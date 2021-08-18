@@ -204,7 +204,6 @@ struct CarState {
     speedOffset @3 :Float32;
     standstill @4 :Bool;
     nonAdaptive @5 :Bool;
-    autoHighBeamBit @6 :Bool;
   }
 
   enum GearShifter {
@@ -317,6 +316,7 @@ struct CarControl {
     leftLaneVisible @7: Bool;
     rightLaneDepart @8: Bool;
     leftLaneDepart @9: Bool;
+    autoHighBeamBit @10 :Bool;
 
     enum VisualAlert {
       # these are the choices from the Honda
