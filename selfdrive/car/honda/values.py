@@ -22,10 +22,7 @@ class CarControllerParams():
     self.NIDEC_MAX_ACCEL_V = [0.5, 2.4, 1.4, 0.6]
     self.NIDEC_MAX_ACCEL_BP = [0.0, 4.0, 10., 20.]
 
-
-    self.BOSCH_ACCEL_LOOKUP_BP = [-1., 0., 0.6]
-    self.BOSCH_ACCEL_LOOKUP_V = [-3.5, 0., 2.]
-    self.BOSCH_GAS_LOOKUP_BP = [0., 0.6]
+    self.BOSCH_GAS_LOOKUP_BP = [0., 2.0]  # 2m/s^2
     self.BOSCH_GAS_LOOKUP_V = [0, 2000]
 
 
@@ -1241,7 +1238,7 @@ DBC = {
   CAR.CRV_EU: dbc_dict('honda_crv_executive_2016_can_generated', 'acura_ilx_2016_nidec'),
   CAR.CRV_HYBRID: dbc_dict('honda_crv_hybrid_2019_can_generated', None),
   CAR.FIT: dbc_dict('honda_fit_ex_2018_can_generated', 'acura_ilx_2016_nidec'),
-  CAR.HRV: dbc_dict('honda_hrv_touring_2019_can_generated', 'acura_ilx_2016_nidec'),
+  CAR.HRV: dbc_dict('honda_fit_ex_2018_can_generated', 'acura_ilx_2016_nidec'),
   CAR.ODYSSEY: dbc_dict('honda_odyssey_exl_2018_generated', 'acura_ilx_2016_nidec'),
   CAR.ODYSSEY_CHN: dbc_dict('honda_odyssey_extreme_edition_2018_china_can_generated', 'acura_ilx_2016_nidec'),
   CAR.PILOT: dbc_dict('honda_pilot_touring_2017_can_generated', 'acura_ilx_2016_nidec'),
@@ -1266,6 +1263,5 @@ SPEED_FACTOR = {
   CAR.HRV: 1.025,
 }
 
-OLD_NIDEC_LONG_CONTROL = set([CAR.ODYSSEY, CAR.ACURA_RDX, CAR.CRV, CAR.HRV])
 HONDA_BOSCH = set([CAR.ACCORD, CAR.ACCORDH, CAR.CIVIC_BOSCH, CAR.CIVIC_BOSCH_DIESEL, CAR.CRV_5G, CAR.CRV_HYBRID, CAR.INSIGHT, CAR.ACURA_RDX_3G])
 HONDA_BOSCH_ALT_BRAKE_SIGNAL = set([CAR.ACCORD, CAR.CRV_5G, CAR.ACURA_RDX_3G])
