@@ -1,6 +1,5 @@
 from selfdrive.car import apply_std_steer_torque_limits
-from selfdrive.car.ram.ramcan import create_lkas_command, \ # create_lkas_hud, 
-  create_wheel_buttons
+from selfdrive.car.ram.ramcan import create_lkas_command, create_wheel_buttons
 from selfdrive.car.ram.values import CAR, CarControllerParams
 from opendbc.can.packer import CANPacker
 
