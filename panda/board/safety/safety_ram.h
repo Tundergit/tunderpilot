@@ -6,9 +6,9 @@ const int RAM_MAX_RATE_DOWN = 50;
 const int RAM_MAX_TORQUE_ERROR = 240;    // max torque cmd in excess of torque motor up from 240
 const int RAM_GAS_THRSLD = 30;  // 7% more than 2m/s
 const int RAM_STANDSTILL_THRSLD = 10;  // about 1m/s
-const CanMsg RAM_TX_MSGS[] = {{166, 0, 8}, {250, 0, 8}}; // {177, 0, 8}};  // 177 is for long
+const CanMsg RAM_TX_MSGS[] = {{166, 0, 8}}; //, {250, 0, 8}}; // {177, 0, 8}};  // 177 is for long
 
-AddrCheckStruct ram_rx_checks[] = {
+AddrCheckStruct ram_addr_checks[] = {
   {.msg = {{35, 0, 8, .check_checksum = true, .max_counter = 15U, .expected_timestep = 10000U}}},  // EPS module
   {.msg = {{139, 0, 8, .check_checksum = false, .max_counter = 0U, .expected_timestep = 20000U}}},  // wheel speeds
   {.msg = {{153, 0, 8, .check_checksum = false, .max_counter = 15U, .expected_timestep = 20000U}}},  // forward cam ACC
