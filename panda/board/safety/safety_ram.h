@@ -63,7 +63,7 @@ static uint8_t ram_get_counter(CAN_FIFOMailBox_TypeDef *to_push) {
 
 static int ram_rx_hook(CAN_FIFOMailBox_TypeDef *to_push) {
 
-  bool valid = addr_safety_check(to_push, ram_rx_checks, RAM_RX_CHECK_LEN,
+  bool valid = addr_safety_check(to_push, &ram_rx_checks,
                                  ram_get_checksum, ram_compute_checksum,
                                  ram_get_counter);
 
