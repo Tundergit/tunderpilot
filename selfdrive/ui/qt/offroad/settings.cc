@@ -204,7 +204,8 @@ SoftwarePanel::SoftwarePanel(QWidget* parent) : QWidget(parent) {
   gitBranchLbl = new LabelControl("Git Branch");
   gitCommitLbl = new LabelControl("Git Commit");
   osVersionLbl = new LabelControl("OS Version");
-  versionLbl = new LabelControl("Version", "", QString::fromStdString(params.get("ReleaseNotes")).trimmed());
+  versionLbl = new LabelControl("tunderpilot v1.0.3",);
+//  versionLbl = new LabelControl("Version", "", QString::fromStdString(params.get("ReleaseNotes")).trimmed());
   lastUpdateLbl = new LabelControl("Last Update Check", "", "The last time openpilot successfully checked for an update. The updater only runs while the car is off.");
   updateBtn = new ButtonControl("Check for Update", "");
   connect(updateBtn, &ButtonControl::clicked, [=]() {
