@@ -28,8 +28,8 @@ from selfdrive.manager.process_config import managed_processes
 
 LDW_MIN_SPEED = 31 * CV.MPH_TO_MS
 LANE_DEPARTURE_THRESHOLD = 0.1
-STEER_ANGLE_SATURATION_TIMEOUT = 1.0 / DT_CTRL
-STEER_ANGLE_SATURATION_THRESHOLD = 2.5  # Degrees
+STEER_ANGLE_SATURATION_TIMEOUT = 10.0 / DT_CTRL  # up from 1.0
+STEER_ANGLE_SATURATION_THRESHOLD = 20.5  # Degrees up from 2.5
 
 SIMULATION = "SIMULATION" in os.environ
 NOSENSOR = "NOSENSOR" in os.environ
@@ -240,7 +240,7 @@ class Controls:
       self.events.add(EventName.canError)
 
     safety_mismatch = self.sm['pandaState'].safetyModel != self.CP.safetyModel or self.sm['pandaState'].safetyParam != self.CP.safetyParam
-    if safety_mismatch or self.mismatch_counter >= 200:
+    if safety_mismatch or self.mismatch_counter >= 200000: # up from 200
       self.events.add(EventName.controlsMismatch)
 
     if not self.sm['liveParameters'].valid:
