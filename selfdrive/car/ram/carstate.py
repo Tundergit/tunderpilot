@@ -15,7 +15,7 @@ class CarState(CarStateBase):
 
     self.steer_command_bit = cp_cam.vl["FORWARD_CAMERA_LKAS"]['LKAS_CONTROL_BIT']
     
-#    ret.autoHighBeamBit = cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT'] - HUD needs work, going with stock
+    ret.autoHighBeamBit = cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT']  # HUD needs work, going with stock, but we can read this bit for fun
 
     ret.doorOpen = any([cp.vl["DOORS"]['DOOR_OPEN_LF'],
                         cp.vl["DOORS"]['DOOR_OPEN_RF'],
@@ -31,7 +31,7 @@ class CarState(CarStateBase):
 
     ret.espDisabled = (cp.vl["CENTER_STACK"]['TRAC_OFF'] == 1)
 
-    MAX_SPEED = 300
+    MAX_SPEED = 300 # hack to prevent outrageous numbers
     ret.wheelSpeeds.fl = MAX_SPEED if cp.vl['WHEEL_SPEEDS']['WHEEL_SPEED_LF'] >= MAX_SPEED else cp.vl['WHEEL_SPEEDS']['WHEEL_SPEED_LF']
     ret.wheelSpeeds.rr = MAX_SPEED if cp.vl['WHEEL_SPEEDS']['WHEEL_SPEED_RR'] >= MAX_SPEED else cp.vl['WHEEL_SPEEDS']['WHEEL_SPEED_RR']
     ret.wheelSpeeds.rl = MAX_SPEED if cp.vl['WHEEL_SPEEDS']['WHEEL_SPEED_LR'] >= MAX_SPEED else cp.vl['WHEEL_SPEEDS']['WHEEL_SPEED_LR']
