@@ -25,7 +25,7 @@ class CarState(CarStateBase):
 
     ret.brakePressed = cp.vl["ABS_2"]['DRIVER_BRAKE'] > 5  # human-only... TODO: find values when ACC uses brakes - might have been lucky
     ret.brake = 0
-    ret.brakeLights = ret.brakePressed
+#    ret.brakeLights = ret.brakePressed
     ret.gas = cp.vl["TPS_1"]['THROTTLE_POSITION']
     ret.gasPressed = ret.gas > 5
 
